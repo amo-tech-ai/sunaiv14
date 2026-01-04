@@ -6,8 +6,8 @@ export const MOCK_CLIENT_DATA: ClientDashboardData = {
         industry: "SaaS / Fintech",
         status: "On Track",
         activePhaseId: "phase-core",
-        lastUpdated: "45 mins ago",
-        enabledSystems: ["ai_crm", "automation_systems", "ai_dashboards"]
+        lastUpdated: "Just now",
+        enabledSystems: ["ai_crm", "data_infra"]
     },
     stats: {
         health: 94,
@@ -20,10 +20,10 @@ export const MOCK_CLIENT_DATA: ClientDashboardData = {
     phases: [
         {
             id: "phase-core",
-            name: "CORE FOUNDATION",
+            name: "CORE: FOUNDATION & VISIBILITY",
             startDate: "Current",
             endDate: "Week 2",
-            progress: 65,
+            progress: 75,
             status: "active",
             milestones: [
                 "Digital Footprint Audit",
@@ -34,7 +34,7 @@ export const MOCK_CLIENT_DATA: ClientDashboardData = {
         },
         {
             id: "phase-advanced",
-            name: "ADVANCED AUTOMATION",
+            name: "ADVANCED: VELOCITY & AUTOMATION",
             startDate: "Week 3",
             endDate: "Week 8",
             progress: 0,
@@ -48,7 +48,7 @@ export const MOCK_CLIENT_DATA: ClientDashboardData = {
         },
         {
             id: "phase-scaling",
-            name: "SCALING & OPTIMIZATION",
+            name: "SCALING: PREDICTION & EXPANSION",
             startDate: "Week 9+",
             endDate: "Ongoing",
             progress: 0,

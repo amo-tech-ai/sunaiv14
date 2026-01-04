@@ -13,7 +13,7 @@ const ClientLeftPanel: React.FC<ClientLeftPanelProps> = ({ data, activeView, onN
 
     const navItems = [
         { id: 'overview', label: 'Overview', icon: '⚡' },
-        { id: 'phases', label: 'Phases (Roadmap)', icon: '🗺️' },
+        { id: 'phases', label: 'Roadmap', icon: '🗺️' },
         { id: 'deliverables', label: 'Deliverables', icon: '📦' },
         { id: 'approvals', label: 'Approvals', icon: '✍️', count: data.stats.openApprovals },
         { id: 'reports', label: 'Reports', icon: '📊' },
@@ -24,8 +24,8 @@ const ClientLeftPanel: React.FC<ClientLeftPanelProps> = ({ data, activeView, onN
     return (
         <div className="space-y-8 flex flex-col h-full animate-fade-in">
             {/* 1. Active Client Card */}
-            <div className="bg-slate-900 rounded-xl p-5 text-white shadow-lg relative overflow-hidden shrink-0">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-bl-full -mr-8 -mt-8"></div>
+            <div className="bg-slate-900 rounded-xl p-5 text-white shadow-lg relative overflow-hidden shrink-0 group">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
                 
                 <div className="relative z-10">
                     <div className="flex justify-between items-start mb-3">
@@ -48,8 +48,8 @@ const ClientLeftPanel: React.FC<ClientLeftPanelProps> = ({ data, activeView, onN
                         </div>
                         <div className="flex items-center space-x-2">
                              <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
-                             <span className="text-sm font-bold text-blue-400">
-                                {currentPhase?.name || 'CORE FOUNDATION'}
+                             <span className="text-sm font-bold text-blue-400 truncate">
+                                {currentPhase?.name.split(':')[0] || 'CORE'}
                             </span>
                         </div>
                     </div>
@@ -84,40 +84,41 @@ const ClientLeftPanel: React.FC<ClientLeftPanelProps> = ({ data, activeView, onN
 
             {/* 3. Strategic Progress */}
             <div className="flex-1 overflow-y-auto panel-scroll pr-1">
-                <PanelSection title="Delivery Roadmap">
-                    <div className="space-y-4">
+                <PanelSection title="Strategic Roadmap">
+                    <div className="space-y-3">
                         {phases.map((phase, idx) => {
                             const isActive = phase.id === context.activePhaseId;
                             const isPast = idx < phases.findIndex(p => p.id === context.activePhaseId);
-                            const isFuture = !isActive && !isPast;
                             
                             return (
                                 <div 
                                     key={phase.id} 
                                     onClick={() => onNavigate('phases')}
                                     className={`
-                                        relative p-3 rounded-lg border transition-all cursor-pointer
+                                        relative p-3 rounded-lg border transition-all cursor-pointer group
                                         ${isActive 
                                             ? 'bg-white border-blue-200 shadow-md ring-1 ring-blue-100' 
                                             : isPast 
-                                                ? 'bg-slate-50 border-slate-200 opacity-70' 
-                                                : 'bg-white border-slate-100 opacity-60 hover:opacity-100'}
+                                                ? 'bg-slate-50 border-slate-200 opacity-60' 
+                                                : 'bg-white border-slate-100 opacity-50 hover:opacity-80'}
                                     `}
                                 >
                                     <div className="flex items-center justify-between mb-1">
-                                        <span className={`text-[10px] font-bold uppercase tracking-wider ${isActive ? 'text-blue-700' : 'text-slate-500'}`}>
+                                        <span className={`text-[10px] font-bold uppercase tracking-wider ${isActive ? 'text-blue-700' : 'text-slate-400'}`}>
                                             Phase {idx + 1}
                                         </span>
                                         {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>}
-                                        {isPast && <span className="text-green-500 text-xs">✓ Done</span>}
                                     </div>
-                                    <h4 className={`text-sm font-bold mb-1 ${isActive ? 'text-slate-900' : 'text-slate-600'}`}>{phase.name}</h4>
+                                    <h4 className={`text-xs font-bold mb-2 truncate ${isActive ? 'text-slate-900' : 'text-slate-500'}`}>
+                                        {phase.name.split(':')[1]?.trim() || phase.name}
+                                    </h4>
                                     
-                                    {isActive && (
-                                        <div className="w-full bg-slate-100 rounded-full h-1 mt-2">
-                                            <div className="bg-blue-600 h-1 rounded-full" style={{ width: `${phase.progress}%` }}></div>
-                                        </div>
-                                    )}
+                                    <div className="w-full bg-slate-100 rounded-full h-1">
+                                        <div 
+                                            className={`h-1 rounded-full ${isActive ? 'bg-blue-600' : isPast ? 'bg-green-500' : 'bg-transparent'}`} 
+                                            style={{ width: `${phase.progress}%` }}
+                                        ></div>
+                                    </div>
                                 </div>
                             );
                         })}
@@ -125,7 +126,7 @@ const ClientLeftPanel: React.FC<ClientLeftPanelProps> = ({ data, activeView, onN
                 </PanelSection>
 
                  {/* 4. Active Tech Stack */}
-                 <PanelSection title="Active Technology">
+                 <PanelSection title="Enabled Systems">
                     <div className="flex flex-wrap gap-2">
                         {context.enabledSystems.map(sys => (
                             <span key={sys} className="px-2 py-1 bg-slate-50 border border-slate-200 rounded text-[10px] font-medium text-slate-500 shadow-sm capitalize">

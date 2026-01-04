@@ -22,7 +22,7 @@ const ClientRightPanel: React.FC<ClientRightPanelProps> = ({ data, activeView })
             return (
                 <div className="space-y-4">
                     <IntelligenceCard title="Sun AI Analyst" loading={true}>
-                        Analyzing view context...
+                        Analyzing delivery context...
                     </IntelligenceCard>
                 </div>
             )
@@ -33,42 +33,39 @@ const ClientRightPanel: React.FC<ClientRightPanelProps> = ({ data, activeView })
                 return (
                     <>
                         <IntelligenceCard title="Executive Summary" type="info">
-                            Project is currently <strong>{data.context.status}</strong>. 
-                            We are ahead of schedule on Phase 2 automation deliverables.
+                            <strong>Phase 1 (Foundation)</strong> is 75% complete. We are currently validating your data schemas before unlocking Phase 2 (Automation).
                         </IntelligenceCard>
-                        <IntelligenceCard title="Risk Radar" type={data.stats.risksDetected > 0 ? 'alert' : 'success'}>
-                            {data.stats.risksDetected === 0 
-                                ? "No critical risks detected in the current sprint."
-                                : `${data.stats.risksDetected} risks require attention.`}
-                        </IntelligenceCard>
-                    </>
-                );
-            case 'deliverables':
-                return (
-                    <>
-                         <IntelligenceCard title="Quality Assurance">
-                            <span className="text-green-600 font-bold">100%</span> of delivered assets have passed automated testing suites.
-                        </IntelligenceCard>
-                        <IntelligenceCard title="Next Up" type="info">
-                            The "Customer Support Chatbot" requires your input on tone of voice guidelines before we begin training.
+                        <IntelligenceCard title="Strategic Focus">
+                            Current focus is on "Visibility" - ensuring you can see all your data in one place.
                         </IntelligenceCard>
                     </>
                 );
             case 'phases':
                 return (
                     <>
-                        <IntelligenceCard title="Timeline Analyst">
-                            Phase 2 is 45% complete. We estimate full completion by {data.phases[1].endDate}.
+                        <IntelligenceCard title="Why Phased Delivery?">
+                            We lock "Advanced Automation" until "Foundation" is stable. Implementing AI on bad data creates chaos faster, not results.
                         </IntelligenceCard>
-                        <IntelligenceCard title="Critical Path">
-                            The "Lead Scoring Agent" milestone is on the critical path. Any delay here will impact Phase 3 start date.
+                        <IntelligenceCard title="Next Phase Preview" type="info">
+                             Once Phase 1 is complete, we will enable the <strong>Lead Routing Agent</strong> which typically saves 15 hours/week of manual triage.
+                        </IntelligenceCard>
+                    </>
+                );
+            case 'deliverables':
+                return (
+                    <>
+                         <IntelligenceCard title="QA Status">
+                            <span className="text-green-600 font-bold">100%</span> of delivered assets have passed automated testing suites.
+                        </IntelligenceCard>
+                        <IntelligenceCard title="Blockers">
+                            No critical blockers detected. Please approve the "Brand Voice Guidelines" to keep us on schedule.
                         </IntelligenceCard>
                     </>
                 );
             case 'reports':
                 return (
                     <IntelligenceCard title="Document Insights">
-                        The "Initial Strategy Audit" was viewed by 3 stakeholders. We recommend sharing the "Phase 1 Completion Deck" with your board.
+                        The "Baseline Performance Audit" identifies a 20% drop-off in your current lead forms. We address this in Deliverable #2.
                     </IntelligenceCard>
                 );
             case 'approvals':
