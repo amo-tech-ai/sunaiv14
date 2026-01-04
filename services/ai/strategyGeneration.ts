@@ -58,7 +58,7 @@ export const generateStrategy = async (
                 Task:
                 1. Create 3 distinct implementation phases (Foundation, Automation, Scaling).
                 2. Identify top 3 risks to success.
-                3. Allocate Nexus AI Agents (Orchestrator, Analyst, Assistant) to specific roles in this plan.
+                3. Allocate Sun AI Agents (Orchestrator, Analyst, Assistant) to specific roles in this plan.
 
                 Structure the output strictly as JSON.
             `,
