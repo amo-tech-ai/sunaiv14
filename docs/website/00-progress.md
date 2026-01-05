@@ -13,13 +13,13 @@
 | **AI Web Dev**<br>`/services/ai-web-dev` | Service Detail (Architecture) | • 8-Week Timeline visual<br>• Tech Stack Marquee<br>• Visual Dashboard Spotlight<br>• FAQ Accordion | 🟢 **100%** | ✅ **Optimized**<br>Light/Clean theme. Mobile stack behavior is correct. |
 | **AI Development**<br>`/services/ai-development` | Service Detail (Engineering) | • "Deep Mind" Dark Theme<br>• Capability Grid<br>• GPT vs Custom Comparison Table<br>• Interactive ROI Calculator | 🟢 **100%** | ✅ **Optimized**<br>Complex tables handle mobile overflow via horizontal scroll or stacking. |
 | **AI Agents**<br>`/services/ai-agents` | Service Detail (Automation) | • Orbiting Hero Animation<br>• "Employee Badge" Cards<br>• Workflow Step Visualizer<br>• Receipt-style Pricing | 🟢 **100%** | ✅ **Optimized**<br>Orange/Purple accents. Animation degrades gracefully. |
+| **AI Chatbots**<br>`/services/ai-chatbots` | Service Detail (Experience) | • Interactive Phone Chat Demo<br>• Dark/Light Section Contrast<br>• Channel Grid (Icons)<br>• Analytics Graph | 🟢 **100%** | ✅ **Optimized**<br>Cyan/Green Theme. Phone mockup scales well on mobile. |
 
 ## 2. Missing / To-Be-Developed Pages
 *Based on Footer links and standard agency requirements.*
 
 | Page / Route | Priority | Purpose | Status |
 | :--- | :--- | :--- | :--- |
-| **AI Chatbots**<br>`/services/ai-chatbots` | 🔥 High | Detail page for one of the highest-demand services. Needs "Live Demo" visual. | 🔴 **0%** |
 | **Contact / Booking**<br>`/contact` | 🔥 High | The primary conversion point. Needs form + Calendly embed. | 🔴 **0%** |
 | **Work / Projects**<br>`/projects` | High | Portfolio/Case Studies. Crucial for trust. Needs filterable grid. | 🔴 **0%** |
 | **Our Process**<br>`/process` | Medium | Deep dive into the 8-week methodology. | 🔴 **0%** |
@@ -39,4 +39,3 @@
 *   **Sticky CTA**: On mobile, the "Book Strategy Call" button should stick to the bottom of the screen on long Service Detail pages.
 *   **Video Embeds**: Replace static "Dashboard Mockups" with looping mp4/Lottie files for higher engagement.
 *   **Exit Intent**: A modal offering the ROI Calculator results via email if the user moves to close the tab.
-
