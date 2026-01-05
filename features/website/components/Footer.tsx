@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -6,10 +7,10 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div>
-            <div className="font-serif font-bold text-xl tracking-tight flex items-center gap-2 mb-6">
+            <Link to="/" className="font-serif font-bold text-xl tracking-tight flex items-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#10B981]"></span>
               SUN AI AGENCY
-            </div>
+            </Link>
             <p className="text-slate-500 text-sm leading-relaxed">
               Premium AI-native agency platform. We build products that generate real revenue using intelligent workflows.
             </p>
@@ -18,10 +19,11 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-white mb-6">Services</h4>
             <ul className="space-y-3 text-sm text-slate-500">
-              <li className="hover:text-[#10B981] cursor-pointer transition-colors">AI Web Development</li>
-              <li className="hover:text-[#10B981] cursor-pointer transition-colors">Chatbots & Agents</li>
-              <li className="hover:text-[#10B981] cursor-pointer transition-colors">Custom LLM Integration</li>
-              <li className="hover:text-[#10B981] cursor-pointer transition-colors">MVP Launchpad</li>
+              <li><Link to="/services/ai-web-dev" className="hover:text-[#10B981] transition-colors">AI Web Development</Link></li>
+              <li><Link to="/services/ai-agents" className="hover:text-[#10B981] transition-colors">Autonomous Agents</Link></li>
+              <li><Link to="/services/ai-chatbots" className="hover:text-[#10B981] transition-colors">AI Chatbots</Link></li>
+              <li><Link to="/services/ai-development" className="hover:text-[#10B981] transition-colors">Custom AI Integration</Link></li>
+              <li><Link to="/services" className="hover:text-[#10B981] transition-colors">All Services</Link></li>
             </ul>
           </div>
 

@@ -4,6 +4,10 @@ import { AppProvider } from './context/AppContext';
 
 // Feature Components
 import HomePage from './features/website/HomePage';
+import ServicesPage from './features/website/ServicesPage';
+import AIWebDevPage from './features/website/service-pages/AIWebDevPage';
+import AIIntegrationPage from './features/website/service-pages/AIIntegrationPage';
+import AIAgentsPage from './features/website/service-pages/AIAgentsPage';
 import WizardStep1 from './features/wizard/WizardStep1';
 import WizardStep2 from './features/wizard/WizardStep2';
 import WizardStep3 from './features/wizard/WizardStep3';
@@ -21,8 +25,12 @@ const AppContent: React.FC = () => {
   return (
     <>
       <Routes>
-        {/* Public Landing Page */}
+        {/* Public Landing Pages */}
         <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/ai-web-dev" element={<AIWebDevPage />} />
+        <Route path="/services/ai-development" element={<AIIntegrationPage />} />
+        <Route path="/services/ai-agents" element={<AIAgentsPage />} />
         
         {/* Wizard Entry Point (Aliased) */}
         <Route path="/start" element={<WizardStep1 />} />
